@@ -1,0 +1,55 @@
+<!--pages/exhibitionMsg/exhibitionMsg.wxml-->
+<view class='pageBox'>
+  <view class='imgBox'>
+    <image mode='widthFix' src="{{HOST}}{{dataList.coverPic}}"></image>
+  </view>
+  <view class='textBox'>
+    <text class='tittle'>{{title_name}}</text>
+    <text wx:if="{{dataList.showDate}}" class='msg'>展览时间：{{dataList.showDate}}</text>
+    <text wx:if="{{dataList.exhibitLocate}}" class='msg'>展览地点：{{dataList.exhibitLocate}}</text>
+    <text wx:if="{{selectFalseText}}"  class='msg'>展览介绍：{{selsetBool == true ? selectTrueText : selectFalseText}}</text>
+  </view>
+  <view class='moreBtn'>
+    <image bindtap='selectMore' class='{{selsetBool == true ? "imgeClick":""}}' src='../../image/gd_03.png'></image>
+  </view>
+  <view class='title_activity'  wx:if="{{dataList.collList.length > 1}}">
+    <image class='hdxqtb' src='http://image2.artup.com/static/xiaochengxu/icon_huodong.png'></image>
+    <text wx:if="{{isShowTitle=='0'}}">展厅展示</text>
+    <text wx:if="{{isShowTitle=='1'}}">展览照片</text>
+    <image class='moresBtn' bindtap="tapGoList" src='../../image/more_03.png'></image>
+  </view>
+  <view class='imgListBox'>
+    <view bindtap='tapGoListMsg' data-id='{{itmes.resId}}' id='{{itmes.resId}}' class='smallBox' wx:for="{{dataList.collList}}"  wx:for-index="idx"  data-indexs='{{idx}}' wx:for-item="itmes" wx:if="{{idx < 3}}">
+      <view style='width:200rpx;height:200rpx;background: #ddd;'>
+          <image mode="aspectFit" src='{{HOST}}{{itmes.showPic}}'></image>
+      </view>
+      <text>{{itmes.showName}}</text>
+    </view>
+  </view>
+  <view wx:if="{{dataList.picList.length>0}}" class='tpzlBox'>
+    <view class='title_activity'>
+      <image class='hdxqtb' src='http://image2.artup.com/static/xiaochengxu/icon_huodong.png'></image>
+      <text>展览照片</text>
+    </view>
+    <swiper class='swipers' indicator-dots="true" autoplay="false" interval="5000" duration="1000">
+      <block wx:if="{{index < 20}}" wx:for="{{dataList.picList}}">
+      <swiper-item>
+        <image class='luboImgs' mode='widthFix' src="{{HOST}}{{item.showPic}}" />
+      </swiper-item>
+      </block>
+      <!-- <swiper-item>
+        <image class='luboImgs' mode='widthFix' src="http://image2.artup.com/static/xiaochengxu/test.jpg" />
+      </swiper-item> -->
+    </swiper>
+  </view>
+  <view wx:if="{{videoSrc}}" class='tpzlBox spzlBox'>
+    <view class='title_activity'>
+      <image class='hdxqtb' src='http://image2.artup.com/static/xiaochengxu/icon_huodong.png'></image>
+      <text> 展览视频</text>
+    </view>
+    <view class='videos'>
+      <video src="{{HOST}}{{videoSrc}}"
+        bindfullscreenchange="bindfullscreenchanges" enable-danmu controls></video>
+    </view>
+  </view>
+</view>

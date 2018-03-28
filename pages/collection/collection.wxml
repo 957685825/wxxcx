@@ -1,0 +1,65 @@
+<!--pages/collection/ollection.wxml-->
+<view class='img_view'>
+<block  wx:for="{{collection.childs}}">
+  <view id='{{item.entity.code}}' data-classname='{{item.entity.className}}' data-index='{{index}}' bindtap="tapGoList" class='img_list'>
+    <view class='img_box'>
+      <image src='{{HOST}}{{item.entity.thumbPic}}'></image>   
+    </view>    
+     <text>{{item.entity.className}}</text> 
+  </view>
+  </block>
+  <!-- <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view>
+   <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view>
+   <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view>
+   <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view>
+   <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view>
+   <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view>
+   <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view>
+   <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view>
+   <view class='img_list'>
+    <view class='img_box'>
+      <image src='http://image2.artup.com/static/xiaochengxu/test.jpg'></image>   
+    </view>    
+     <text>古代艺术</text> 
+  </view> -->
+</view>

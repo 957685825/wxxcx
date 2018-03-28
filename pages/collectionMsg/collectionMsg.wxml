@@ -1,0 +1,89 @@
+<!--pages/collectionMsg/collectionMsg.wxml-->
+<view wx:if="{{classN=='自然标本'}}" class='img_title'>
+  <image wx:if="{{collectionMsg.thumbPic}}" mode="widthFix" src='{{HOST}}{{collectionMsg.thumbPic}}'></image>
+  <image mode="widthFix" wx:if="{{classN!='自然标本'}}" src='http://image2.artup.com/static/xiaochengxu/paiban.png'></image>
+</view>
+<swiper wx:if="{{collectionMsg.picList}}" class='swipers' indicator-dots="true" autoplay="false" interval="5000" duration="1000">
+  <block wx:if="{{index < 20}}" wx:for="{{collectionMsg.picList}}">
+    <swiper-item>
+      <image class='luboImgs' mode='aspectFill' src="{{HOST}}{{item.showPic}}" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class='video_mp3'>
+  <view wx:if="{{collectionMsg.thumbAudio!=''}}" id='0' bindtap='isMp3' class=" {{collectionMsg.thumbVideo==''?'margin_25':'mp3'}}">
+    <image src='http://image2.artup.com/static/xiaochengxu/icon_mp3_open.png'></image>
+    <text>音频</text>
+  </view>
+  <!-- <view wx:hidden="{{collectionMsg.thumbAudio!=''}}" id='1' bindtap='isMp3' wx:if="{{!condition}}" class=" {{collectionMsg.thumbVideo==''?'margin_25':'mp3'}}">
+     <image  src='http://image2.artup.com/static/xiaochengxu/icon_mp3_close.png'></image>
+     <text>音频</text>
+  </view> -->
+  <view wx:if="{{collectionMsg.thumbVideo!=''}}" bindtap='startVideo' class="video {{collectionMsg.thumbAudio==''?'margin_25':''}}">
+    <image src='http://image2.artup.com/static/xiaochengxu/icon_video.png'></image>
+    <text>视频</text>
+  </view>
+</view>
+<!--物品描述  -->
+<view class='thing_msg'>
+  <text wx:if="collectionMsg.showName" class='title'>{{collectionMsg.showName}}</text>
+
+  <text wx:if="{{classN=='自然标本'}}" class='year'>
+    英文名称: {{collectionMsg.englishName}}
+  </text>
+  <text wx:if="{{classN=='自然标本'}}" class='year'>
+    学名: {{collectionMsg.scienceName}}
+  </text>
+  <text class='year'>
+    年代:  {{collectionMsg.decade}}
+  </text>
+  <text wx:if="{{collectionMsg.relicsLevel}}">
+    文物级别:{{collectionMsg.relicsLevel}}
+  </text>
+  <text wx:if="{{collectionMsg.category}}">
+    类别:{{collectionMsg.category}}
+  </text>
+  <text wx:if="{{collectionMsg.quality}}">
+    质地:{{collectionMsg.quality}}
+  </text>
+  <text wx:if="{{collectionMsg.specificYear}}" class='year'>
+    具体年代: {{collectionMsg.specificYear}}
+  </text>
+  <text wx:if="{{collectionMsg.quantity}}">
+    实际数量:{{collectionMsg.quantity}}
+  </text>
+  <text wx:if="{{collectionMsg.size}}" class='size'>
+    具体尺寸:{{collectionMsg.size}}
+  </text>
+  <text wx:if="{{collectionMsg.weight}}" class='size'>
+    具体质量:{{collectionMsg.weight}}
+  </text>
+  <text wx:if="{{collectionMsg.reservedStates}}" class='size'>
+    保存现状:{{collectionMsg.reservedStates}}
+  </text>
+  <text wx:if="{{collectionMsg.collectMode}}" class='year'>
+    来源方式: {{collectionMsg.collectMode}}
+  </text>
+  <text wx:if="{{collectionMsg.storageYear}}" class='size'>
+    入藏年度:{{collectionMsg.storageYear}}
+  </text>
+  <!-- <text wx:if="{{collectionMsg.storageYear}}" class='size'>
+  来源方式:{{collectionMsg.storageYear}}
+  </text> -->
+  <text wx:if="{{collectionMsg.detail}}" class='msg'>
+    描述:{{collectionMsg.detail}}
+  </text>
+</view>
+<view wx:if="{{isShow}}" class='btn_box'>
+  <button bindtap="prevZp">上一展品</button>
+  <button bindtap="nextZp">下一展品</button>
+</view>
+<audio style='position: absolute;top:-1000px;' poster="{{mp3.poster}}" name="{{mp3.name}}" author="{{mp3.author}}" src="{{HOST}}{{collectionMsg.thumbAudio}}" id="myAudio" controls loop></audio>
+
+<block wx:if="{{video_iss}}">
+  <view bindtap='closeVideo' class='video_box'>
+    <view style='text-align:center;'>
+      <video objectFit="fill" id="myVideo" src="{{HOST}}{{collectionMsg.thumbVideo}}" bindfullscreenchange="bindfullscreenchanges" autoplay enable-danmu controls></video>
+    </view>
+  </view>
+</block>

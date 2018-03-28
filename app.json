@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/exhibition/exhibition",
+    "pages/activity/activity",
+    "pages/collectionList/collectionList",
+    "pages/collection/collection",
+    "pages/exhibitionMsg/exhibitionMsg",
+    "pages/activityMsg/activityMsg",
+    "pages/collectionMsg/collectionMsg",
+    "pages/exhibitionCollectionList/exhibitionCollectionList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#6e829e",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/exhibition/exhibition",
+        "iconPath": "image/footer_1.png",
+        "selectedIconPath": "image/footer_1_active.png",
+        "text": "展览"
+      },
+      {
+        "pagePath": "pages/collection/collection",
+        "iconPath": "image/footer_2.png",
+        "selectedIconPath": "image/footer_2_active.png",
+        "text": "典藏"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "iconPath": "image/footer_3.png",
+        "selectedIconPath": "image/footer_3_active.png",
+        "text": "活动"
+      }
+    ]
+  }
+}
